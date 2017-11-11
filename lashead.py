@@ -4,7 +4,7 @@ import os
 
 
 def test_encoding(filename):
-    encodings = ['ascii', 'windows-1252', 'utf-8']
+    encodings = ['ascii', 'windows-1252', 'latin-1', 'utf-8']
     for i in encodings:
         enc = i
         f = open(filename, 'r', encoding=enc)
@@ -35,6 +35,7 @@ def get_section(filename, section=None, line_numbers=False):
         section = '~'
     else:
         terminator = '~'
+    print(filename)
     with open(filename, 'r', encoding=enc) as file_obj:
         line = file_obj.readline()
         while not line.strip().startswith('~A'):
@@ -99,8 +100,7 @@ if __name__ == "__main__":
             text_block = get_section(filename, '~C', line_numbers)
             header += text_block
     else:
-        with open(filename, 'r', encoding=enc) as f:
-            text_block = get_section(f, None, line_numbers)
-            header += text_block
+        text_block = get_section(filename, None, line_numbers)
+        header += text_block
 
     print(header)
