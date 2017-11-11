@@ -43,7 +43,7 @@ def get_section(filename, section=None, line_numbers=False):
                     line_number += 1
                     try:
                         if line_numbers:
-                            text_block += '{}| {}'.format(line_number, line)
+                            text_block += '{:>3}| {}'.format(line_number, line)
                             line = file_obj.readline()
                         else:
                             text_block += line
