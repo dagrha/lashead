@@ -35,7 +35,6 @@ def get_section(filename, section=None, line_numbers=False):
         section = '~'
     else:
         terminator = '~'
-    print(filename)
     with open(filename, 'r', encoding=enc) as file_obj:
         line = file_obj.readline()
         while not line.strip().startswith('~A'):
