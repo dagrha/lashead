@@ -102,4 +102,6 @@ if __name__ == "__main__":
         text_block = get_section(filename, None, line_numbers)
         header += text_block
 
+    print(filename)
+    print('-' * len(filename))
     print(header)
